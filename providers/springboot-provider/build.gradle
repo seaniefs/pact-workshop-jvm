@@ -42,12 +42,17 @@ pact {
   serviceProviders {
     'Our_Provider' {
       port = 8080
-
       startProviderTask = startProvider
       terminateProviderTask = stopProvider
       stateChangeUrl = url('http://localhost:8080/pactStateChange')
 
-      hasPactsFromPactBroker("https://test.pact.dius.com.au", authentication: ['Basic', pactBrokerUser, pactBrokerPassword])
+      hasPactsFromPactBroker("http://127.0.0.1:9292", authentication: ['Basic', pactBrokerUser, pactBrokerPassword])
     }
+  }
+  publish {
+    // Most likely use System.getEnv() for the broker url and username/password
+    pactBrokerUrl = "http://127.0.0.1:9292"
+    pactBrokerUsername = "pacttest"
+    pactBrokerPassword = "pacttest"
   }
 }

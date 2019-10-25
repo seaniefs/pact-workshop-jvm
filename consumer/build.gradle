@@ -28,7 +28,7 @@ test {
 
 pact {
   publish {
-    pactBrokerUrl = 'https://test.pact.dius.com.au'
+    pactBrokerUrl = 'http://localhost:9292'
     pactBrokerUsername = project.pactBrokerUser
     pactBrokerPassword = project.pactBrokerPassword
   }
